@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style >
+    #circle {
+    	width: 200px;
+    	height: 200px;
+    	background: red;
+      margin: auto;
+    	border-radius: 50%;
+      margin-top: 200px;
+      box-shadow: 10px;
+    }
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <script>
+    var x = 200;
+    var color = ['red', 'green', 'blue'];
+    var c_color = 0;
+    function mouse() {
+      if (x > 200) {
+        x -= 5;
+        document.getElementById("circle").style.width = x + "px";
+        document.getElementById("circle").style.height = x + "px";
+      }
+      if (c_color == 0)
+        c_color = 2;
+      else
+        c_color--;
+      document.getElementById("circle").style.background = color[c_color];
+    }
+    function myfunction() {
+      if (x > 421) {
+        x = 200;
+        y = 200;
+      }
+      if (c_color < 2)
+        c_color += 1;
+      else
+        c_color = 0;
+      x += 10;
+      document.getElementById("circle").style.width = x + "px";
+      document.getElementById("circle").style.height  = x + "px";
+      document.getElementById("circle").style.background = color[c_color];
+    }
+    </script>
+    <div id="circle" onmouseleave="mouse()" onclick="myfunction()">
+    </div>
+
+  </body>
+</html>

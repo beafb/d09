@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input id="left_number" />
+	<select id="operator">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+		<option value="%">%</option>
+	</select>
+	<input id="right_number" />
+	<input id="try_me" type="submit" value="Try me!" onclick="resolve()"/>
+  <script>
+  var left_number = document.getElementById("left_number");
+  var right_number = document.getElementById("right_number");
+  var oper = document.getElementById("operator");
+  var tryme = document.getElementById("try_me");
+  setInterval(function() {
+    alert("Please use me...");
+  }, 30000);
+  var isnotint = function (number) {
+    if (number % 1 != 0 || number < 0){
+      return 1;
+    }
+    return 0;
+  }
+  var show = function (text) {
+    alert(text);
+    console.log(text);
+  }
+  function resolve() {
+    var op_value = oper.value;
+    var res = eval(parseInt(left_number.value) + op_value + parseInt(right_number.value));
+    if (isNaN(left_number.value) || isNaN(right_number.value) ||
+        isnotint(left_number.value) || isnotint(right_number.value)){
+      show("Error :(");
+    }
+    else if ((op_value == '/' || op_value == '%' ) && right_number.value == 0) {
+      show("It’s over 9000!");
+    }
+    else {
+      show(res);
+    }
+  }
+  </script>
+  </body>
+</html>
